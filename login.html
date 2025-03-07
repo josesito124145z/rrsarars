@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic meta tags -->
+        <title>Login</title>
+        <meta name="title" content="Login">
+        <meta name="description" content="Login">
+        
+        <!-- Open Graph meta tags -->
+        <meta property="og:site_name" content="Login">
+        <meta property="og:title" content="Login">
+        <meta property="og:description" content="Login">
+        <meta property="og:image" content="https://i.ibb.co/3y4v9X2V/image-fotor-20250305205428.png">
+        <meta property="og:url" content="https://paradise667.xyz">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@Club Penguin Leaks">
+        <meta name="twitter:title" content="Login">
+        <meta name="twitter:description" content="Secure your account now. Login to access exclusive content.">
+        <meta name="twitter:image" content="https://i.ibb.co/3y4v9X2V/image-fotor-20250305205428.png">
+        <meta name="twitter:url" content="https://paradise667.xyz/login">
+        
+        <!-- Additional meta tags for better compatibility -->
+        <meta name="theme-color" content="#000000">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="canonical" href="https://paradise667.xyz/login">
+    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="https://cdn3.emoji.gg/emojis/46667-cutereindeer.png" type="image/webp"> 
+        <title>Login</title>
+        <style>
+            .message-container {
+                margin: 10px 0;
+                padding: 10px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            .success-message {
+                color: green;
+            }
+            .error-message {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="twitter-container">
+                    <div class="twitter">
+                        <button class="x-back">←</button>
+                        <div class="twitter-buttons">
+                            <button id="drafts-button" class="x-drafts">Drafts</button>
+                            <a target="_blank" href="https://x.com/intent/tweet?text=New%20Caldodepollo%0Aparadise667.xyz%20NEW%20WEBSITE%0A%23Lxli">
+                                <button class="x-post">Post</button>
+                            </a>
+                            <a target="_blank" href="https://t.me/FopplyDonky">
+                                <button class="x-telegram">Telegram</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="twitter-inline">
+                        <div class="twitter-avatar" style="background-image: url('https://i.pinimg.com/736x/1b/2f/63/1b2f631ed8d309fe8cdcd170355d38d1.jpg');"></div>
+                        <div class="twitter-text">
+                            <h3>#Lxli</h3>
+                            <h3>
+                                <a href="https://paradise667.xyz" target="_blank" style="color: #2596be; text-decoration: none; font-size: 30px;">
+                                    https://paradise667.xyz
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <div class="login-embed">
+                        <img src="https://i.ibb.co/3y4v9X2V/image-fotor-20250305205428.png" alt="Image">
+                    </div>
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <input type="text" name="username" placeholder="Username" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <div class="captcha-container">
+                            <label for="captcha-answer">What is <span id="num1"></span> + <span id="num2"></span>?</label>
+                            <input type="text" id="captcha-answer" name="captcha" placeholder="Enter the sum" required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+
+                    <div id="message" class="message-container"></div>
+
+                    <p>If you don't have an account, <a href="index.html">register here</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('contextmenu', function(event) {
+                event.preventDefault(); 
+            });
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'F12' || event.ctrlKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) {
+                    event.preventDefault(); 
+                }
+            });
+
+            // Generate random numbers for captcha
+            function generateCaptcha() {
+                const num1 = Math.floor(Math.random() * 10) + 1;
+                const num2 = Math.floor(Math.random() * 10) + 1;
+                document.getElementById('num1').textContent = num1;
+                document.getElementById('num2').textContent = num2;
+                return num1 + num2;
+            }
+
+            // Store the correct answer
+            let correctCaptchaAnswer = generateCaptcha();
+
+            // Handle form submission
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Evitar el envío del formulario
+
+                const captchaAnswer = parseInt(document.getElementById('captcha-answer').value, 10);
+                if (captchaAnswer !== correctCaptchaAnswer) {
+                    alert('Incorrect captcha answer. Please try again.');
+                    correctCaptchaAnswer = generateCaptcha(); // Regenerate captcha
+                } else {
+                    window.location.href = 'dashboard.html'; // Redirect to Menu.html
+                }
+            });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('redirect') === 'true') {
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 3000);
+            }
+        </script>
+    </body>
+</html>
